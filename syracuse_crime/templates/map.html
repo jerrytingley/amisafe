@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Crime Map</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: -25.363, lng: 131.044};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 37.775, lng: -122.434},
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+		var locations = [
+			{% for crime in crimes %}
+				['', {{ crime.latitude}}, {{ crime.longitude }}],
+			{% endfor %}
+		];
+
+		for(var i = 0; i < locations.length; i++)
+		{
+			marker = new google.maps.Marker({
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map
+			});
+		}
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDHKSY-6Yfp0_ndLnqiNMYaBGsgpuEzTEw&callback=initMap">
+    </script>
+  </body>
+</html>

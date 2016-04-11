@@ -1,0 +1,32 @@
+/** This is a minimalistic css framework
+  Mostly css2.
+  Why?
+  Because your grandma can't load your fancy shit.
+  Lots of things will be left to the OS to parse.
+  Why?
+  Again "our grandma can't load your fancy shit." **/
+  /** Defaults **/
+*{font-family: Arial, Helvetica, sans-serif;  color:black; font-size: 50px;}
+#container{text-align: center; margin-left: auto; margin-right: auto; display: block;}
+#container::after{content: "";display: table; clear: both;}
+
+/** Grid **/
+.whole{width:100%;}
+.one-half{width:48%; float:left; font-size: 0.5em; padding-left: 2px; padding-right: 2px;}
+.one-quarter{width: 24%;float:left;font-size: 0.5em; padding-left: 2px; padding-right: 2px;}
+.one-eight{width:12.4%; float:left; font-size: 0.23%; padding-left: 2px; padding-right: 2px;}
+.header{width:100%; padding-bottom: 50px; }
+.footer{width:100%;}
+.center{width:100%; padding-top: 2%;}
+
+
+/** DEBUG FOR GRIDS, ENABLE IF YOU CAN'T FIND THE BORDERS **/
+/** div{border: 2px solid pink} **/
+
+/** Formats Specials **/
+.title{font-weight: bold;}
+.footer ul li{list-style-type: none;}
+.header ul li{list-style-type: none;}
+.questions{list-style-type: square; !important; display: block;} !impotant;
+.lists{list-style-type: upper-roman; !important;}  !impotant;
+.para{}
